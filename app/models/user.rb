@@ -6,5 +6,5 @@ class User < ApplicationRecord
          
   has_one_attached :image
   
-  has_many :bookes, dependeent: :destroy
+  has_many :bookes, dependent: :destroy
 end
