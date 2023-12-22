@@ -9,6 +9,10 @@ class BooksController < ApplicationController
     redirect_to root_path
   end
   
+  def index
+    @books = Book.all
+  end
+  
   
   
   
