@@ -15,9 +15,30 @@
     <header>
       <% if user_signed_in? %>
         <li>
+          <%= link_to "Bookers", root_path%>
+        </li>
+        <li>
+          <%= link_to "Home", users_id_path%>
+        </li>
+        <li>
+          <%= link_to "Users", users_path%>
+        </li>
+        <li>
+          <%= link_to "Books", books_path%>
+        </li>
+        <li>
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
+        <li>
+          <%= link_to "Bookers", root_path%>
+        </li>
+        <li>
+          <%= link_to "Home", root_path%>
+        </li>
+        <li>
+          <%= link_to "About", homes_about_path%>
+        </li>
         <li>
           <%= link_to "Sign up", new_user_registration_path %>
         </li>
@@ -37,7 +58,7 @@
       <%= f.text_area :body %>
   
       <%= f.submit 'Create Book' %>
-      <% end %>
+    <% end %>
       
     <h1>User info</h1>
     <% if @user.image.attached? %>
@@ -45,9 +66,9 @@
     <% else %>
       <%= image_tag 'no_image', size: "100x100" %>
     <% end %>
-    <%= f.submit %>
+    <a href="users/<%= @edit %>/edit">
       <i class="fa-solid fa-user-gear"></i>
-    <% end %>
+    </a>
     
     <footer>
       <div class="container mt-5">
