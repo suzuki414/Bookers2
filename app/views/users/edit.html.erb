@@ -13,3 +13,10 @@
     <%= f.submit 'Update User' %>
     
 <% end %>
+
+
+<% if @user.get_image().attached? %>
+      <%= image_tag user.get_image(), size: "100x100" %>
+    <% else %>
+      <%= image_tag 'no_image', size: "100x100" %>
+    <% end %>
