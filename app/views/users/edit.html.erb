@@ -15,8 +15,8 @@
 <% end %>
 
 
-<% if @user.get_image().attached? %>
-      <%= image_tag user.get_image(), size: "100x100" %>
-    <% else %>
-      <%= image_tag 'no_image', size: "100x100" %>
-    <% end %>
+<% if @user.get_image() %>
+  <%= image_tag @user.get_image(), size: "100x100" %>
+<% else %>
+  <%= image_tag 'no_image', size: "100x100" %>
+<% end %>
