@@ -1,5 +1,5 @@
 <h1>User info</h1>
-<%= form_with model: @user, url:'/users/:id/edit', method: :get do |f| %>
+<%= form_with model: @user, url: user_path, method: :patch do |f| %>
 
   <h4>Name</h4>
     <%= f.text_field :name %>
@@ -12,11 +12,4 @@
 
     <%= f.submit 'Update User' %>
 
-<% end %>
-
-
-<% if @user.get_image() %>
-  <%= image_tag @user.get_image(), size: "100x100" %>
-<% else %>
-  <%= image_tag 'no_image', size: "100x100" %>
 <% end %>
