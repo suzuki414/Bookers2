@@ -7,7 +7,7 @@
         <td>
           <%= link_to user_path(@user) do %>
             <%= @user.name %>
-          <% end %>  
+          <% end %>
         </td>
         <td>
           <%= link_to book_path(book) do %>
@@ -17,9 +17,12 @@
         <td><%= book.body %></td>
       <% if @book.user == current_user %>
         <td><%= link_to "Edit", edit_book_path(@book) %></td>
-        <td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
-      <% end %>  
+        <td><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか" %></td>
+      <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= render 'users/show', user: @user %>
+<%= render 'books/new', book: @book %>

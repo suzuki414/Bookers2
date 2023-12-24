@@ -4,6 +4,7 @@ class BooksController < ApplicationController
   end
 
   def create
+    puts params.inspect
     book = Book.new(book_params)
     book.user_id = current_user.id
     book.save
@@ -26,10 +27,11 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id])
-    @book.user_id = current_user.id
-    @book.update(book_params)
-    redirect_to book_path
+    book = Book.find(params[:id])
+    book.user_id = current_user.id
+    book.update(book_params)
+    redirect_to book_path(book)
+  end
 
   def destroy
     book = Book.find(params[:id])
