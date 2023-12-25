@@ -55,7 +55,12 @@
         </li>
       <% end %>
     </header>
-    <%= yield %>
+    <main>
+      <% flash.each do |message_type, message| %>
+        <div class="flash-messagee <%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    </main>
 
     <footer>
       <div class="container mt-5">

@@ -4,16 +4,22 @@ class BooksController < ApplicationController
   end
 
   def create
-    puts params.inspect
-    book = Book.new(book_params)
-    book.user_id = current_user.id
-    book.save
-    redirect_to book_path(book)
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+    if @book.save
+     flash[:notice] = "You have created book successfully"
+     redirect_to book_path(@book)
+    else
+      @books = Book.all
+      @user = User.find(current_user.id)
+      render :index
+    end
   end
 
   def index
     @books = Book.all
     @user = current_user
+    @book = Book.new
   end
 
   def show
@@ -30,6 +36,7 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     book.user_id = current_user.id
     book.update(book_params)
+    flash[:notice] = "You have updated book successfully"
     redirect_to book_path(book)
   end
 
