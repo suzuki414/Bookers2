@@ -9,8 +9,8 @@
       <table class="table table-striped">
         <tbody>
           <tr>
-            <td><%= image_tag @user.get_profile_image(80,80) %></td>
             <td>
+              <%= image_tag @user.get_profile_image(80,80) %><br>
               <%= link_to user_path(@user) do %>
               <%= @user.name %>
               <% end %>
@@ -22,8 +22,8 @@
             </td>
             <td><%= @book.body %></td>
             <% if @book.user == current_user %>
-            <td><%= link_to "Edit", edit_book_path(@book) %></td>
-            <td><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか" %></td>
+            <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success" %></td>
+            <td><%= link_to "Destroy", book_path(@book), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか" %></td>
             <% end %>
           </tr>
         </tbody>
