@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'users/show', user: @user %>
-      <%= render 'books/new', book: @book %>
+      <%= render 'users/show', user: @book_user %>
+      <%= render 'new', book: @new_book %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h1>Book detail</h1>
@@ -10,9 +10,9 @@
         <tbody>
           <tr>
             <td>
-              <%= image_tag @user.get_profile_image(80,80) %><br>
-              <%= link_to user_path(@user) do %>
-              <%= @user.name %>
+              <%= image_tag @book_user.get_profile_image(80,80) %><br>
+              <%= link_to user_path(@book_user) do %>
+              <%= @book_user.name %>
               <% end %>
             </td>
             <td>
@@ -30,4 +30,4 @@
       </table>
     </div>
   </div>
-</div>  
+</div>

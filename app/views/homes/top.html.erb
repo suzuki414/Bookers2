@@ -19,10 +19,10 @@
       <div class="mx-auto">
       <% if user_signed_in? %>
       <%= link_to "Log in", users_path(current_user.id), class: "btn btn-info" %><br><br>
-      <%= link_to "sign up", users_path(current_user.id), class: "btn btn-success" %>
+      <%= link_to "Sign up", users_path(current_user.id), class: "btn btn-success" %>
       <% else %>
       <%= link_to "Log in", new_user_session_path, class: "btn btn-info" %><br><br>
-      <%= link_to "sign up", new_user_registration_path, class: "btn btn-success" %>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success" %>
       <% end %>
     </div>
   </div>

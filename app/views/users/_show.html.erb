@@ -12,8 +12,7 @@
     </tr>
   </head>
 </table>
-<button type="button" class="btn btn-outline-secondary" disabled>
-  <%= link_to edit_user_path(user) do %>
+  <%= link_to edit_user_path(user),  class: "btn btn-outline-secondary btn-block" do %>
   <i class="fa-solid fa-user-gear"></i>
   <% end %>
 </button>
