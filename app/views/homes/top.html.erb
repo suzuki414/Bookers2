@@ -15,21 +15,15 @@
         <p>about various books!</p>
       </div>
     </div>
+    <div class="row">
+      <div class="mx-auto">
+      <% if user_signed_in? %>
+      <%= link_to "Log in", users_path(current_user.id), class: "btn btn-info" %><br><br>
+      <%= link_to "sign up", users_path(current_user.id), class: "btn btn-success" %>
+      <% else %>
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-info" %><br><br>
+      <%= link_to "sign up", new_user_registration_path, class: "btn btn-success" %>
+      <% end %>
+    </div>
   </div>
-
-  <% if user_signed_in? %>
-    <li>
-      <%= link_to "Log in", users_path(current_user.id) %>
-    </li>
-    <li>
-      <%= link_to "sign up", users_path(current_user.id) %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to "Log in", new_user_session_path %>
-    </li>
-    <li>
-      <%= link_to "sign up", new_user_registration_path %>
-    </li>
-  <% end %>
 </main>
